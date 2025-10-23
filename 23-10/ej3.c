@@ -7,10 +7,11 @@ int main(){
     FILE *f;
     f = fopen("test2","rb");
 
-    int c = getc(f);
+    int numero;
+    fread(&numero, sizeof(numero), 1, f);
     while (!feof(f)){
-        printf("La letra es: %d \n",c);
-        c = getc(f);
+        printf("La letra es: %d \n",numero);
+        fread(&numero, sizeof(numero), 1, f);
     }
     
     fclose(f);
